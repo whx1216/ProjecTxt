@@ -17,7 +17,7 @@ ProjecTxt是一款桌面应用程序，一个用于生成文件夹结构和显�
 
 ## 截图
 
-![](screenshot\screenshot.png)
+![](screenshot/screenshot.png)
 
 
 
