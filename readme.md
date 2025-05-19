@@ -117,13 +117,12 @@ ProjecTxt是一款桌面应用程序，一个用于生成文件夹结构和显�
 1. **环境要求**:
 
 	*   Python 3.x (建议 3.8 或更高版本)
-	*   操作系统：Windows, macOS, Linux (pywebview支持的平台)
 
 2. **克隆仓库** (如果您从git获取):
 
 	```bash
-	git clone <repository-url>
-	cd web
+	git clone https://github.com/whx1216/ProjecTxt.git
+	cd ProjecTxt
 	```
 
 	或者直接下载解压项目文件到本地，并进入 `web` 目录。

@@ -1,2 +1,2 @@
-pywebview>=4.0
-pygments>=2.10.0
+Pygments==2.19.1
+pywebview==5.4
