@@ -1,0 +1,58 @@
+:root {
+    /* 主色调 */
+    --primary-color: #365880;
+    --primary-hover: #4e729d;
+    --primary-active: #2d4a63;
+
+    /* 成功/错误色 */
+    --success-color: #2E7D32;
+    --success-hover: #3c9940;
+    --danger-color: #C62828;
+    --danger-hover: #d84545;
+
+    /* 背景色 */
+    --bg-main: #2b2b2b;
+    --bg-secondary: #313335;
+    --bg-tertiary: #3c3f41;
+    --bg-hover: #4d5052;
+
+    /* 边框色 */
+    --border-color: #323232;
+    --border-focus: #4f9ed9;
+    --divider-color: #555555;
+
+    /* 文本色 */
+    --text-primary: #a9b7c6;
+    --text-secondary: #888888;
+    --text-highlight: #ffc66d;
+    --text-success: #6aaa3a;
+    --text-danger: #ff6b6b;
+    --text-warning: #FFA500;
+
+    /* 特殊类型颜色 */
+    --cdn-color: #7b68ee;
+    --minified-color: #ff6b6b;
+    --database-color: #FFA500;
+
+    /* 选择状态颜色 */
+    --selected-bg: #0F3D14;
+    --selected-hover: #185a1c;
+    --hover-bg: #2f496a;
+    --active-bg: #214283;
+
+    /* 阴影 */
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+
+    /* 圆角 */
+    --border-radius: 4px;
+
+    /* 动画时间 */
+    --transition-time: 0.15s;
+
+    /* 行距 */
+    --line-height: 1.5;
+
+    /* 控件尺寸 */
+    --input-height: 32px;
+    --button-height: 32px;
+}

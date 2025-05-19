@@ -1,0 +1,676 @@
+/* 基础样式重置 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    line-height: var(--line-height);
+    overflow: hidden;
+}
+
+/* 应用容器 */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+/* 头部样式 */
+.header {
+    background-color: var(--bg-secondary);
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.header-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--text-highlight);
+}
+
+.header-toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.toolbar-btn {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: none;
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.toolbar-btn:hover {
+    background-color: var(--bg-hover);
+}
+
+.toolbar-btn i {
+    font-size: 14px;
+}
+
+.toolbar-select {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 4px 8px;
+    font-size: 13px;
+    height: 28px;
+}
+
+/* 文件夹选择区域 */
+.folder-selection {
+    background-color: var(--bg-main);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.folder-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.folder-input-group {
+    display: flex;
+    flex: 1;
+    gap: 8px;
+}
+
+.folder-input {
+    flex: 1;
+    height: var(--input-height);
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0 10px;
+}
+
+.folder-input:focus {
+    outline: none;
+    border-color: var(--border-focus);
+}
+
+/* 按钮样式 */
+.btn {
+    height: var(--button-height);
+    padding: 0 12px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color var(--transition-time);
+    white-space: nowrap;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.secondary-btn {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--divider-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--bg-hover);
+}
+
+.success-btn {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.success-btn:hover {
+    background-color: var(--success-hover);
+}
+
+.danger-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.danger-btn:hover {
+    background-color: var(--danger-hover);
+}
+
+.small-btn {
+    height: 26px;
+    padding: 0 8px;
+    font-size: 12px;
+}
+
+/* 进度条 */
+.progress-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--bg-tertiary);
+    border-radius: 4px;
+    overflow: hidden;
+    flex: 1;
+}
+
+.progress-inner {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    width: 40px;
+    text-align: right;
+}
+
+/* 主内容区域 */
+.main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* 文件树面板 */
+.file-tree-panel {
+    width: 35%;
+    min-width: 300px;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--divider-color);
+}
+
+/* 控制面板 */
+.control-panel {
+    padding: 12px;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.control-panel h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--text-highlight);
+}
+
+.search-group, .file-types-group {
+    margin-bottom: 12px;
+}
+
+.search-group label, .file-types-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.search-input {
+    width: 100%;
+    height: var(--input-height);
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0 10px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--border-focus);
+}
+
+.file-types-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-types-select {
+    flex: 1;
+    height: var(--input-height);
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tree-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-row button {
+    flex: 1;
+    font-size: 12px;
+}
+
+/* 文件树 */
+.file-tree {
+    flex: 1;
+    overflow: auto;
+    padding: 8px;
+    user-select: none;
+}
+
+.tree-node {
+    padding: 2px 0;
+    cursor: pointer;
+}
+
+.tree-node-content {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-time);
+}
+
+.tree-node-content:hover {
+    background-color: var(--hover-bg);
+}
+
+.tree-node-selected {
+    background-color: var(--selected-bg);
+}
+
+.tree-node-selected:hover {
+    background-color: var(--selected-hover);
+}
+
+.tree-node-icon {
+    margin-right: 5px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.tree-node-label {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tree-node-info {
+    display: flex;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.tree-node-info span {
+    text-align: right;
+    min-width: 50px;
+}
+
+.tree-folder {
+    margin-left: 16px;
+}
+
+/* CDN, 压缩和数据库文件的样式 */
+.tree-node-cdn .tree-node-label {
+    color: var(--cdn-color);
+}
+
+.tree-node-minified .tree-node-label {
+    color: var(--minified-color);
+}
+
+.tree-node-database .tree-node-label {
+    color: var(--database-color);
+}
+
+/* 内容面板 */
+.content-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.preview-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.preview-container h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--text-highlight);
+}
+
+.no-selection-message {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.file-preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.file-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.file-name {
+    font-weight: bold;
+    color: var(--text-highlight);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-info-text {
+    color: var(--text-secondary);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.file-tags {
+    display: flex;
+    gap: 5px;
+}
+
+.file-tag {
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+    color: white;
+}
+
+.tag-cdn {
+    background-color: var(--cdn-color);
+}
+
+.tag-minified {
+    background-color: var(--minified-color);
+}
+
+.tag-database {
+    background-color: var(--database-color);
+}
+
+.code-container {
+    flex: 1;
+    overflow: auto;
+    padding: 0;
+    background-color: var(--bg-main);
+}
+
+/* 代码高亮样式增强 */
+.code-highlight {
+    font-family: Consolas, Monaco, 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.code-highlight .linenos {
+    color: var(--text-secondary);
+    background-color: var(--bg-secondary);
+    padding: 0 8px;
+    border-right: 1px solid var(--border-color);
+    user-select: none;
+    text-align: right;
+}
+
+.code-highlight pre {
+    margin: 0;
+}
+
+.code-highlight td.code {
+    padding-left: 10px;
+    width: 100%;
+}
+
+/* 状态栏 */
+.status-bar {
+    height: 28px;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--divider-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.status-message {
+    flex: 1;
+}
+
+/* 模态对话框 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-dialog {
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--divider-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--text-highlight);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: var(--text-primary);
+}
+
+.modal-content {
+    padding: 16px;
+    overflow: auto;
+    flex: 1;
+    max-height: 70vh;
+}
+
+.modal-footer {
+    padding: 12px 16px;
+    border-top: 1px solid var(--divider-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* 历史记录列表样式 */
+.history-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.history-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+}
+
+.history-item:hover {
+    background-color: var(--hover-bg);
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-hover);
+}
+
+/* Context Menu Styles */
+.context-menu {
+    position: fixed;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 5px 0;
+    min-width: 180px;
+    z-index: 1000;
+}
+
+.context-menu-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.context-menu-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.context-menu-item.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.context-menu-item.disabled:hover {
+    background-color: transparent;
+}
+
+.context-menu-item i {
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+
+.context-menu-separator {
+    height: 1px;
+    background-color: var(--divider-color);
+    margin: 5px 0;
+}
+
+.context-submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: none;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 5px 0;
+    min-width: 180px;
+    z-index: 1001;
+}
+
+.context-menu-item:hover > .context-submenu {
+    display: block;
+}
+
+.submenu-icon {
+    position: absolute;
+    right: 10px;
+    font-size: 10px;
+}

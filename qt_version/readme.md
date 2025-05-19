@@ -1,0 +1,3 @@
+qt_version是ProjecTxt的Qt实现版
+只有一个main.py文件，缺少部分功能
+使用请自行下载依赖
