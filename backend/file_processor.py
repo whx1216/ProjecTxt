@@ -59,7 +59,7 @@ class FileProcessor:
             '.py', '.js', '.html', '.css', '.php', '.json', '.xml', '.txt', '.md',
             '.csv', '.java', '.kt', '.c', '.cpp', '.h', '.hpp', '.ts', '.jsx',
             '.tsx', '.yml', '.yaml', '.toml', '.ini', '.cfg', '.conf', '.sh',
-            '.bat', '.ps1', '.sql', '.go', '.rb', '.rs', '.dart', '.swift'
+            '.bat', '.ps1', '.sql', '.go', '.rb', '.rs', '.dart', '.swift', '.wxss', '.wxml'
         }
 
     def process_directory(self, folder_path, callback=None):
@@ -207,18 +207,34 @@ class FileProcessor:
     def highlight_code(self, content, filename):
         """高亮显示代码"""
         try:
-            # 尝试根据文件扩展名获取合适的词法分析器
-            lexer = lexers.get_lexer_for_filename(filename, stripall=False)
+            # 获取文件扩展名
+            file_ext = os.path.splitext(filename)[1].lower()
+
+            # 处理WXML和WXSS文件的特殊情况
+            if file_ext == '.wxml':
+                # WXML类似于HTML，使用HTML词法分析器
+                lexer = lexers.get_lexer_by_name('html', stripall=False)
+            elif file_ext == '.wxss':
+                # WXSS类似于CSS，使用CSS词法分析器
+                lexer = lexers.get_lexer_by_name('css', stripall=False)
+            else:
+                # 其他文件类型，尝试根据文件扩展名获取合适的词法分析器
+                try:
+                    lexer = lexers.get_lexer_for_filename(filename, stripall=False)
+                except pygments.util.ClassNotFound:
+                    # 如果找不到匹配的词法分析器，尝试根据文件类型获取
+                    try:
+                        file_type = file_ext[1:] if file_ext else 'txt'
+                        if file_type and file_type != 'txt':
+                            lexer = lexers.get_lexer_by_name(file_type, stripall=False)
+                        else:
+                            lexer = lexers.get_lexer_by_name('text', stripall=False)
+                    except pygments.util.ClassNotFound:
+                        lexer = lexers.get_lexer_by_name('text', stripall=False)
+
         except pygments.util.ClassNotFound:
-            # 如果找不到匹配的词法分析器，尝试根据文件类型获取
-            try:
-                file_type = os.path.splitext(filename)[1][1:] if os.path.splitext(filename)[1] else 'txt'
-                if file_type and file_type != 'txt':
-                    lexer = lexers.get_lexer_by_name(file_type, stripall=False)
-                else:
-                    lexer = lexers.get_lexer_by_name('text', stripall=False)
-            except pygments.util.ClassNotFound:
-                lexer = lexers.get_lexer_by_name('text', stripall=False)
+            # 如果所有尝试都失败，使用文本词法分析器
+            lexer = lexers.get_lexer_by_name('text', stripall=False)
 
         # 使用IDE风格的格式化器，并设置行号
         formatter = HtmlFormatter(

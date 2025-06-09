@@ -463,7 +463,9 @@ window.app = (() => {
             'ini': 'INI配置文件(.ini)',
             'gradle': 'Gradle文件(.gradle)',
             'dart': 'Dart文件(.dart)',
-            'vue': 'Vue文件(.vue)'
+            'vue': 'Vue文件(.vue)',
+            'wxml': '微信ml(.wxml)',
+            'wxss': '微信ss(.wxss)'
         };
 
         // 添加已找到的常见类型
